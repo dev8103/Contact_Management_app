@@ -9,11 +9,11 @@ const {
     updateContact, 
     deleteContact } = require('../controllers/contactController');
 
-// get
-router.route('/').get(getContact);
-router.route('/:id').get(getContactById);
 // create
 router.route('/').post(createContact);
+// read
+router.route('/').get(getContact);
+router.route('/:id').get(getContactById);
 // update
 router.route('/:id').put(updateContact);
 // delete
