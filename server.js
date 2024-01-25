@@ -2,12 +2,19 @@
 const express = require('express');
 const app = express();
 
+// modules
+const dotenv = require('dotenv').config();
+
 // custom module
 const contactRoutes = require('./routes/contactRoutes'); 
 const errorHandler = require('./middleware/errorHandler');
+const connectToDb = require('./config/dbConnection');
 
 // port no.
-const port = 5000;
+const port = process.env.PORT;
+
+// call the function to connect to database
+connectToDb();
 
 // builtin middleware for json file
 app.use(express.json());
