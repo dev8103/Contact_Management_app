@@ -7,6 +7,7 @@ const dotenv = require('dotenv').config();
 
 // custom module
 const contactRoutes = require('./routes/contactRoutes'); 
+const userRoutes = require('./routes/userRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const connectToDb = require('./config/dbConnection');
 
@@ -20,8 +21,11 @@ connectToDb();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// crud operations for /api/contact path
+// all urls related to contacts
 app.use('/api/contacts',contactRoutes);
+
+// all urls related to users
+app.use('/api/users',userRoutes);
 
 // error handler
 app.use(errorHandler);
